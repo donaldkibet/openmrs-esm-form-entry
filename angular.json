@@ -22,7 +22,7 @@
           "options": {
             "outputPath": "dist/openmrs-esm-form-entry",
             "index": "src/index.html",
-            "main": "src/main.single-spa.ts",
+            "main": "src/openmrs.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
@@ -38,7 +38,10 @@
               "path": "extra-webpack.config.js",
               "libraryName": "openmrs-esm-form-entry",
               "libraryTarget": "umd"
-            }
+            },
+            "allowedCommonJsDependencies": [
+              "single-spa-angular"
+            ]
           },
           "configurations": {
             "production": {
