@@ -1,4 +1,3 @@
-import { defineConfigSchema } from "@openmrs/esm-config";
 import { backendDependencies } from './openmrs-backend-dependencies';
 
 const importTranslation = require.context(
@@ -10,9 +9,6 @@ const importTranslation = require.context(
 
 function setupOpenMRS() {
   const moduleName = '@openmrs/esm-form-entry';
-  defineConfigSchema(moduleName, {});
-
-  console.log(moduleName);
 
   return {
     extensions: [
