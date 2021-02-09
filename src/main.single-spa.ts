@@ -8,7 +8,7 @@ import { singleSpaAngular, getSingleSpaExtraProviders } from 'single-spa-angular
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
-import { singleSpaPropsSubject } from './single-spa/single-spa-props';
+import { SingleSpaProps, singleSpaPropsSubject } from './single-spa/single-spa-props';
 import "zone.js/dist/zone";
 
 if (environment.production) {
@@ -17,7 +17,7 @@ if (environment.production) {
 
 const lifecycles = singleSpaAngular({
   bootstrapFunction: singleSpaProps => {
-    singleSpaPropsSubject.next(singleSpaProps);
+    singleSpaPropsSubject.next(singleSpaProps as SingleSpaProps);
     return platformBrowserDynamic(getSingleSpaExtraProviders()).bootstrapModule(AppModule);
   },
   template: '<esm-form-entry-root />',
@@ -29,3 +29,4 @@ const lifecycles = singleSpaAngular({
 export const bootstrap = lifecycles.bootstrap;
 export const mount = lifecycles.mount;
 export const unmount = lifecycles.unmount;
+
